@@ -31,24 +31,24 @@ class MusicController extends Controller
     * Show the form for creating a new resource.
     *
     * @return Response
+     */
 
     public function create()
     {
-        return view('books.create');
+        return view('music.create');
     }
-
-    * Store a newly created resource in storage.
+    /* Store a newly created resource in storage.
     *
     * @return Response
     */
+    public function store(Request $request)
+    {
+        $music= $request->all();
+        Book::create($music);
+        return redirect('music/home');
+    }
     /*public function __construct(Request $request) {
         $this->request = $request;
-    }
-    public function store(CheckBooksRequest $request)
-    {
-        $book= $request->all();
-        Book::create($book);
-        return redirect('books');
     }*/
     /**
     * Show the form for editing the specified resource.
