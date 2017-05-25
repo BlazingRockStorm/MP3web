@@ -10,6 +10,9 @@
             <h3>{{ $music->artist }}</h3>
             <p>{{ $music->album }}</p>
             <p>{{ $music->genre }}</p>
+            <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" width="560" height="315" src="{{$music->link}}" frameborder="0" allowfullscreen></iframe>
+</div>
         </div>
     </div>
     <a class="btn bg-primary" href="{{asset('music/home')}}">Go Back</a>
