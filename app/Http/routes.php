@@ -27,3 +27,4 @@ Route::get('/home', 'HomeController@index');
 //all about music
 Route::get('/music/home','MusicController@index');
 Route::get('/music/show/{id}','MusicController@show');
+Route::get('/music/create','MusicController@create');

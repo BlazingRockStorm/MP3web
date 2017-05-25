@@ -14,5 +14,6 @@
         </div>
     </div>
     @endforeach
+    <a href="{{asset('music/create')}}" class="btn btn-primary form-control" style="margin-top: 30px">Add new song</a>
 </div>
 @endsection
