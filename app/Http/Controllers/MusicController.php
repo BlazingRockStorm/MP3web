@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use App\Music;
 
@@ -43,8 +43,9 @@ class MusicController extends Controller
     */
     public function store(Request $request)
     {
+        //$request->input('link');
         $music= $request->all();
-        Book::create($music);
+        Music::create($music);
         return redirect('music/home');
     }
     /*public function __construct(Request $request) {

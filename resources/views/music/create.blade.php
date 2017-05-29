@@ -5,7 +5,9 @@
     <h1>Add new song</h1>
     <div class="row" style="margin-bottom: 10px">
         <div class="col-md-6">
-            <form action="#">
+            <form action="{{ route('music.store') }}" method="POST">
+
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                 <div class="form-group">
                     <label for="track">Song's Name:</label>
@@ -34,12 +36,15 @@
                 
                 <div class="form-group">
                     <label for="cover_art">Cover Art:</label>
-                    <input type='file' name='img'>
+                    <input type="file" name="img">
+                </div>
+                
+                <div class="form-group">
+                    <button class="btn btn-primary" type="submit">Create</button>
                 </div>
             </form>
         </div>
     </div>
-    <a class="btn btn-primary" href="#">Create</a>
     <a class="btn btn-primary" href="{{asset('music/home')}}">Go Back</a>
 </div>
 @endsection

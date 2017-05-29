@@ -28,3 +28,7 @@ Route::get('/home', 'HomeController@index');
 Route::get('/music/home','MusicController@index');
 Route::get('/music/show/{id}','MusicController@show');
 Route::get('/music/create','MusicController@create');
+Route::post('/music/home',[
+    'as'=>'music.store',
+    'uses'=>'MusicController@store'
+]);
