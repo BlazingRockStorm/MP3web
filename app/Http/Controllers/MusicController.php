@@ -43,37 +43,63 @@ class MusicController extends Controller
     */
     public function store(Request $request)
     {
-        //$request->input('link');
-        $music= $request->all();
-        Music::create($music);
-        return redirect('music/home');
+        $track=$request->input('track');
+        $artist=$request->input('artist');
+        $album=$request->input('album');
+        $genre=$request->input('genre');
+        $link=$request->input('link');
+        //$cover=$request->file('img')->move(asset('img'));
+        //$music= $request->all();
+        Music::insert([
+            'track'=>$track,
+            'artist'=>$artist,
+            'album'=>$album,
+            'genre'=>$genre,
+            'link'=>$link,
+          //  'cover_art'=>$cover
+        ]);
+        return redirect('music.home');
     }
-    /*public function __construct(Request $request) {
-        $this->request = $request;
-    }*/
     /**
     * Show the form for editing the specified resource.
     *
     * @param  int  $id
     * @return Response
-
+    */
     public function edit($id)
     {
-        $book=Book::find($id);
-        return view('books.edit',compact('book'));
+        $music= Music::find($id);
+        return view('music.edit',compact('music'));
     }
-
-    * Update the specified resource in storage.
+    /* Update the specified resource in storage.
     *
     * @param  int  $id
     * @return Response
-
-    public function update($id,CheckBooksRequest $request)
+    */
+    public function update($id,Request $request)
     {
-        $bookUpdate=$request->all();
-        $book=Book::find($id);
-        $book->update($bookUpdate);
-        return redirect('books');
+        $music=Music::find($id);
+        $track=$request->input('track');
+        $artist=$request->input('artist');
+        $album=$request->input('album');
+        $genre=$request->input('genre');
+        $link=$request->input('link');
+        //$cover=$request->file('img')->move(asset('img'));
+        //$music= $request->all();
+        $music->update([
+            'track'=>$track,
+            'artist'=>$artist,
+            'album'=>$album,
+            'genre'=>$genre,
+            'link'=>$link,
+          //  'cover_art'=>$cover
+        ]);
+        return redirect('music.show');
+    }
+
+    
+    /*public function __construct(Request $request) {
+        $this->request = $request;
     }
     * Remove the specified resource from storage.
     *

@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h1>All songs</h1>
+    <h1>Current song</h1>
     <div class="row" style="margin-bottom: 10px">
         <div class="col-md-3"><img src="{{asset('img/'.$music->cover_art.'.jpg')}}" height="200"></div>
         <div class="col-md-6">
@@ -17,5 +17,6 @@
         </div>
     </div>
     <a class="btn btn-primary" href="{{asset('music/home')}}">Go Back</a>
+    <a class="btn btn-primary" href="{{asset('music/edit/'.$music->id)}}">Edit</a>
 </div>
 @endsection

@@ -28,6 +28,11 @@ Route::get('/home', 'HomeController@index');
 Route::get('/music/home','MusicController@index');
 Route::get('/music/show/{id}','MusicController@show');
 Route::get('/music/create','MusicController@create');
+Route::get('/music/edit/{id}','MusicController@edit');
+Route::put('/music/show/{id}',[
+    'as'=>'music.update',
+    'uses'=>'MusicController@update'
+]);
 Route::post('/music/home',[
     'as'=>'music.store',
     'uses'=>'MusicController@store'
