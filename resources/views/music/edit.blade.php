@@ -45,6 +45,6 @@
             </form>
         </div>
     </div>
-    <a class="btn btn-primary" href="{{asset('music/home')}}">Go Back</a>
+    <a class="btn btn-primary" href="{{asset('music/show/'.$music->id)}}">Go Back</a>
 </div>
 @endsection
