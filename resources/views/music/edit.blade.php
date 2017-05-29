@@ -41,7 +41,7 @@
 
                 <div class="form-group">
                     <button class="btn btn-primary" type="submit">Update</button>
-                </div>
+                </div><!--button don't work-->
             </form>
         </div>
     </div>
