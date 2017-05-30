@@ -94,7 +94,7 @@ class MusicController extends Controller
             'link'=>$link,
           //  'cover_art'=>$cover
         ]);
-        return redirect('music.show');
+        return redirect('music/show/'.$id);
     }
 
     
