@@ -21,7 +21,7 @@
     <form action="{{ route('music.destroy',$music->id) }}" method="POST">
         <input type="hidden" name="_method" value="DELETE">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-        <button type="submit" class="btn btn-danger">Delete</button>
+        <button type="submit" class="btn btn-danger" style="margin-top: 10px">Delete</button>
     </form>
 </div>
 @endsection

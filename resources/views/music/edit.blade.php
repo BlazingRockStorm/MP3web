@@ -6,7 +6,7 @@
     <div class="row" style="margin-bottom: 10px">
         <div class="col-md-6">
             <form action="{{ route('music.update',$music->id) }}" method="POST">
-
+                <input type="hidden" name="_method" value="PUT">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                 <div class="form-group">

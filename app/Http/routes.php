@@ -29,7 +29,7 @@ Route::get('/music/home','MusicController@index');
 Route::get('/music/show/{id}','MusicController@show');
 Route::get('/music/create','MusicController@create');
 Route::get('/music/edit/{id}','MusicController@edit');
-Route::post('/music/show/{id}',[
+Route::put('/music/show/{id}',[
     'as'=>'music.update',
     'uses'=>'MusicController@update'
 ]);
