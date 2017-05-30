@@ -58,7 +58,7 @@ class MusicController extends Controller
             'link'=>$link,
           //  'cover_art'=>$cover
         ]);
-        return redirect('music.home');
+        return redirect('music/home');
     }
     /**
     * Show the form for editing the specified resource.
@@ -96,20 +96,21 @@ class MusicController extends Controller
         ]);
         return redirect('music/show/'.$id);
     }
-
-    
-    /*public function __construct(Request $request) {
-        $this->request = $request;
-    }
-    * Remove the specified resource from storage.
+    /* Remove the specified resource from storage.
     *
     * @param  int  $id
     * @return Response
-
+    */
     public function destroy($id)
     {
-        Book::find($id)->delete();
-        return redirect('books');
+        Music::find($id)->delete();
+        return redirect('music/home');
     }
-     */
+    
+    
+    /*public function __construct(Request $request) {
+        $this->request = $request;
+    }*/
+    
+    
 }

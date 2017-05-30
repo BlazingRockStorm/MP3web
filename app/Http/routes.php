@@ -37,3 +37,7 @@ Route::post('/music/home',[
     'as'=>'music.store',
     'uses'=>'MusicController@store'
 ]);
+Route::delete('/music/show/{id}',[
+    'as'=>'music.destroy',
+    'uses'=>'MusicController@destroy'
+]);

@@ -5,6 +5,7 @@
         <group>
             <file>file:/C:/xampp/htdocs/my_mp3_website/app/Music.php</file>
             <file>file:/C:/xampp/htdocs/my_mp3_website/resources/views/music/edit.blade.php</file>
+            <file>file:/C:/xampp/htdocs/my_mp3_website/resources/views/music/create.blade.php</file>
             <file>file:/C:/xampp/htdocs/my_mp3_website/app/Http/routes.php</file>
             <file>file:/C:/xampp/htdocs/my_mp3_website/app/Http/Controllers/MusicController.php</file>
         </group>
