@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Requests;
+//use App\Http\Requests;
 use App\Music;
 
 class MusicController extends Controller
@@ -48,15 +48,18 @@ class MusicController extends Controller
         $album=$request->input('album');
         $genre=$request->input('genre');
         $link=$request->input('link');
-        //$cover=$request->file('img')->move(asset('img'));
+        $file=$request->file('img');
+        $name=$file->getClientOriginalName();
+        $cover= preg_replace('/(.*)\\.[^\\.]*/', '$1', $name);
+        $file->move('img', $name);
         //$music= $request->all();
-        Music::insert([
+        Music::create([
             'track'=>$track,
             'artist'=>$artist,
             'album'=>$album,
             'genre'=>$genre,
             'link'=>$link,
-          //  'cover_art'=>$cover
+            'cover_art'=>$cover
         ]);
         return redirect('music/home');
     }
