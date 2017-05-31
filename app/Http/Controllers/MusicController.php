@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MusicRequest;
 use App\Music;
+use Request;
 
 class MusicController extends Controller
 {
@@ -47,19 +48,29 @@ class MusicController extends Controller
         $album=$request->input('album');
         $genre=$request->input('genre');
         $link=$request->input('link');
-        $file=$request->file('img');
-        $name=$file->getClientOriginalName();
-        $cover= preg_replace('/(.*)\\.[^\\.]*/', '$1', $name);
-        $file->move('img', $name);
+        $file=$request->file('img');        
+        if ($file) {
+            $name  = $file->getClientOriginalName();
+            $cover = preg_replace('/(.*)\\.[^\\.]*/', '$1', $name);
+            $file->move('img', $name);
         //$music= $request->all();
-        Music::create([
-            'track'=>$track,
-            'artist'=>$artist,
-            'album'=>$album,
-            'genre'=>$genre,
-            'link'=>$link,
-            'cover_art'=>$cover
-        ]);
+            Music::create([
+                'track'=>$track,
+                'artist'=>$artist,
+                'album'=>$album,
+                'genre'=>$genre,
+                'link'=>$link
+            ]);
+        } else {
+            Music::create([
+                'track'=>$track,
+                'artist'=>$artist,
+                'album'=>$album,
+                'genre'=>$genre,
+                'link'=>$link,
+                'cover_art'=>$cover
+            ]);
+        }
         return redirect('music/home');
     }
     /**
@@ -113,9 +124,9 @@ class MusicController extends Controller
     }
     
     
-    /*public function __construct(Request $request) {
+    public function __construct(Request $request) {
         $this->request = $request;
-    }*/
+    }
     
     
 }

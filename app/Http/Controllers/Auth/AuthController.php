@@ -29,7 +29,7 @@ class AuthController extends Controller
      * @var string
      */
     protected $redirectTo = '/music/home';
-    protected $redirectAfterLogout = '/logout';
+    protected $redirectAfterLogout = '/music/home';
 
     /**
      * Create a new authentication controller instance.
