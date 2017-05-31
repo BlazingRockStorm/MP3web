@@ -5,7 +5,7 @@
     <h1>Add new song</h1>
     <div class="row" style="margin-bottom: 10px">
         <div class="col-md-6">
-            <form action="{{ route('music.store') }}" method="POST"  enctype="multipart/form-data">
+            <form action="{{ route('music.store') }}" method="POST" enctype="multipart/form-data">
 
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -13,6 +13,9 @@
                     <label for="track">Song's Name:</label>
                     <input type="text" name="track"  class="form-control" id="track" placeholder="Enter song">
                 </div>
+                @if ( $errors->has('track') )
+                    <p class="SP-01">{{$errors->first('track')}}</p>
+                @endif
 
                 <div class="form-group">
                     <label for="artist">Artist's Name:</label>

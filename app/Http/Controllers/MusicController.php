@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-//use App\Http\Requests;
+use App\Http\Requests\MusicRequest;
 use App\Music;
 
 class MusicController extends Controller
@@ -41,7 +40,7 @@ class MusicController extends Controller
     *
     * @return Response
     */
-    public function store(Request $request)
+    public function store(MusicRequest $request)
     {
         $track=$request->input('track');
         $artist=$request->input('artist');
@@ -79,7 +78,7 @@ class MusicController extends Controller
     * @param  int  $id
     * @return Response
     */
-    public function update($id,Request $request)
+    public function update($id,MusicRequest $request)
     {
         $music=Music::find($id);
         $track=$request->input('track');
@@ -87,7 +86,10 @@ class MusicController extends Controller
         $album=$request->input('album');
         $genre=$request->input('genre');
         $link=$request->input('link');
-        //$cover=$request->file('img')->move(asset('img'));
+        $file=$request->file('img');
+        $name=$file->getClientOriginalName();
+        $cover= preg_replace('/(.*)\\.[^\\.]*/', '$1', $name);
+        $file->move('img', $name);
         //$music= $request->all();
         $music->update([
             'track'=>$track,
@@ -95,7 +97,7 @@ class MusicController extends Controller
             'album'=>$album,
             'genre'=>$genre,
             'link'=>$link,
-          //  'cover_art'=>$cover
+            'cover_art'=>$cover
         ]);
         return redirect('music/show/'.$id);
     }

@@ -5,7 +5,7 @@
     <h1>Edit song</h1>
     <div class="row" style="margin-bottom: 10px">
         <div class="col-md-6">
-            <form action="{{ route('music.update',$music->id) }}" method="POST">
+            <form action="{{ route('music.update',$music->id) }}" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="_method" value="PUT">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -13,6 +13,9 @@
                     <label for="track">Song's Name:</label>
                     <input type="text" name="track"  class="form-control" id="track" placeholder="Enter song" value="{{ $music->track }}">
                 </div>
+                @if ( $errors->has('track') )
+                    <p class="SP-01">{{$errors->first('track')}}</p>
+                @endif
 
                 <div class="form-group">
                     <label for="artist">Artist's Name:</label>
@@ -34,16 +37,17 @@
                     <input type="text" name="link"  class="form-control" id="link" placeholder="Enter link" value="{{$music->link }}">
                 </div>
 
-                <!--div class="form-group">
+                <div class="form-group">
                     <label for="cover_art">Cover Art:</label>
                     <input type="file" name="img">
-                </div-->
+                </div>
 
                 <div class="form-group">
                     <button class="btn btn-primary" type="submit">Update</button>
                 </div><!--button don't work-->
             </form>
         </div>
+        <div class="col-md-3"><img src="{{asset('img/'.$music->cover_art.'.jpg')}}" height="200"></div>
     </div>
     <a class="btn btn-primary" href="{{asset('music/show/'.$music->id)}}">Go Back</a>
 </div>
