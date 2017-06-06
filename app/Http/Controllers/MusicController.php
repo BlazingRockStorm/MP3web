@@ -59,7 +59,8 @@ class MusicController extends Controller
                 'artist'=>$artist,
                 'album'=>$album,
                 'genre'=>$genre,
-                'link'=>$link
+                'link'=>$link,
+                'cover_art'=>$cover
             ]);
         } else {
             Music::create([
@@ -67,8 +68,7 @@ class MusicController extends Controller
                 'artist'=>$artist,
                 'album'=>$album,
                 'genre'=>$genre,
-                'link'=>$link,
-                'cover_art'=>$cover
+                'link'=>$link
             ]);
         }
         return redirect('music/home');
@@ -98,17 +98,21 @@ class MusicController extends Controller
         $genre=$request->input('genre');
         $link=$request->input('link');
         $file=$request->file('img');
-        $name=$file->getClientOriginalName();
-        $cover= preg_replace('/(.*)\\.[^\\.]*/', '$1', $name);
-        $file->move('img', $name);
+        if ($file) {
+            $name  = $file->getClientOriginalName();
+            $cover = preg_replace('/(.*)\\.[^\\.]*/', '$1', $name);
+            $file->move('img', $name);
         //$music= $request->all();
+            $music->update([
+                'cover_art'=>$cover
+            ]);
+        }
         $music->update([
             'track'=>$track,
             'artist'=>$artist,
             'album'=>$album,
             'genre'=>$genre,
-            'link'=>$link,
-            'cover_art'=>$cover
+            'link'=>$link
         ]);
         return redirect('music/show/'.$id);
     }
