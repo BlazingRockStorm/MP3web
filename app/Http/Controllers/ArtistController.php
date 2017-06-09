@@ -13,11 +13,18 @@ class ArtistController extends Controller
         $artist= Artist::all();
         return view('artist.index', compact('artist'));
     }
+    
+    public function show($id)
+    {
+        $artist= Artist::find($id);
+        return view('artist.show', compact('artist'));
+    }
 
     public function create()
     {
         return view('artist.create');
     }
+    
     public function store(Request $request)
     {
         $artist = new Artist();
