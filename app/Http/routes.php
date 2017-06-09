@@ -41,3 +41,12 @@ Route::delete('/music/show/{id}',[
     'as'=>'music.destroy',
     'uses'=>'MusicController@destroy'
 ]);
+//all about artist
+Route::get('/artist','ArtistController@index');
+//Route::get('/artist/{id}','ArtistController@show');
+Route::get('/artist/create','ArtistController@create');
+//Route::get('/artist/{id}/edit','ArtistController@edit');
+Route::post('/artist',[
+    'as'=>'artist.store',
+    'uses'=>'ArtistController@store'
+]);

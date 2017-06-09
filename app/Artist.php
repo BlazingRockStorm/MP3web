@@ -11,4 +11,5 @@ class Artist extends Model
         'name',
         'info'
     ];
+    public $timestamps = false;
 }

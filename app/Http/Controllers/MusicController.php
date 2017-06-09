@@ -56,7 +56,7 @@ class MusicController extends Controller
         if ($artist_data != null) {
             $artist_id = $artist_data->id;
         } else {
-            echo("Dang build!\n");
+            return view('artist.create');
         }
         //dd($artist_id);
         //get genre_id
