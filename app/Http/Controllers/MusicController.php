@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MusicRequest;
 use App\Music;
+use App\Artist;
+use App\Genre;
 use Request;
 
 class MusicController extends Controller
@@ -43,32 +45,53 @@ class MusicController extends Controller
     */
     public function store(MusicRequest $request)
     {
+        $music= new Music();
         $track=$request->input('track');
         $artist=$request->input('artist');
         $album=$request->input('album');
         $genre=$request->input('genre');
         $link=$request->input('link');
+        //get artist_id
+        $artist_data = Artist::where('name','=',$artist)->first();
+        if ($artist_data != null) {
+            $artist_id = $artist_data->id;
+        } else {
+            echo("Dang build!\n");
+        }
+        //dd($artist_id);
+        //get genre_id
+        $genre_data = Genre::where('genre','=',$genre)->first();
+        if ($genre_data != null) {
+            $genre_id = $genre_data->genre_id;
+        } else {
+            echo 'Dang build!\n';
+        }
+        //dd($genre_id);
         $file=$request->file('img');        
         if ($file) {
             $name  = $file->getClientOriginalName();
             $cover = preg_replace('/(.*)\\.[^\\.]*/', '$1', $name);
             $file->move('img', $name);
         //$music= $request->all();
-            Music::create([
+            $music->create([
                 'track'=>$track,
                 'artist'=>$artist,
                 'album'=>$album,
                 'genre'=>$genre,
                 'link'=>$link,
-                'cover_art'=>$cover
+                'cover_art'=>$cover,
+                'artist_id'=>$artist_id,
+                'genre_id'=>$genre_id
             ]);
         } else {
-            Music::create([
+            $music->create([
                 'track'=>$track,
                 'artist'=>$artist,
                 'album'=>$album,
                 'genre'=>$genre,
-                'link'=>$link
+                'link'=>$link,
+                'artist_id'=>$artist_id,
+                'genre_id'=>$genre_id
             ]);
         }
         return redirect('music/home');

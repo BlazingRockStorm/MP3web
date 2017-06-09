@@ -13,6 +13,8 @@ class Music extends Model
         'album',
         'genre',
         'link',
-        'cover_art'
+        'cover_art',
+        'artist_id',
+        'genre_id'
     ];
 }
