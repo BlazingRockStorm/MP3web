@@ -13,6 +13,6 @@
         </div>
     </div>
     @endforeach
-    <a href="{{asset('artist/create')}}" class="btn btn-primary form-control" style="margin-top: 30px">Add new song</a>
+    <a href="{{asset('artist/create')}}" class="btn btn-primary form-control" style="margin-top: 30px">Add new artist</a>
 </div>
 @endsection

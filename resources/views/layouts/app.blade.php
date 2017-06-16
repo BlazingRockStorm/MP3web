@@ -46,6 +46,10 @@
                     <li><a href="{{ url('/music/home') }}">Home</a></li>
                 </ul>
 
+                <ul class="nav navbar-nav">
+                    <li><a href="{{ url('/artist') }}">Artists</a></li>
+                </ul>
+                
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
