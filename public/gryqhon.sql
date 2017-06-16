@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 16, 2017 at 10:57 AM
+-- Generation Time: Jun 16, 2017 at 11:34 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -41,10 +41,10 @@ INSERT INTO `artist` (`id`, `name`, `info`, `pic`) VALUES
 (1, 'Bức Tường', 'Là ban nhạc rock hàng đầu Việt Nam được thành lập năm 1995', 'buctuong'),
 (2, 'Hạc San', 'Là ban nhạc rock được thành lập năm 2012 với thể loại chính là Progressive Metal', '1237920_507829695957985_402995914_n'),
 (3, 'Microwave', 'Microwave (nghĩa tiếng việt là Vi sóng, đôi khi được viết là MW như logo nổi tiếng của họ) là một ban nhạc rock theo thể loại nu metal ở TP Hồ Chí Minh. Họ là một trong những ban nhạc nổi tiếng và thành công nhất của thể loại nu metal ở Việt Nam.', 'microwave-band'),
-(4, 'Backstreet Boys', NULL, NULL),
-(5, 'Bon Jovi', NULL, NULL),
-(6, 'Queen', 'Queen là một ban nhạc rock thành lập năm 1970 tại London, Anh. Ban nhạc có được tổng cộng 18 album, 18 đĩa đơn và 10 DVD đạt tới vị trí quán quân, được vinh danh tại Đại sảnh Danh vọng Rock and Roll vào năm 2001.', NULL),
-(8, 'The White Stripes', 'The White Stripes là ban nhạc song ca người Mỹ được thành lập vào năm 1997 ở Detroit, Michigan, Mỹ. Ban nhạc bao gồm 2 thành viên: tay trống Meg White và nhạc sĩ - nghệ sĩ đa nhạc cụ Jack White.', NULL),
+(4, 'Backstreet Boys', 'Backstreet Boys (đôi khi còn được gọi là BSB) là một ban nhạc pop của Hoa Kỳ đã từng được đề cử giải Grammy. Từng đứng thứ 12 trong top 40 của bảng xếp hạng Billboard Hot 100 của Mỹ, và bán được trên 130 triệu album trên toàn thế giới.', 'BackstreetBoys2013'),
+(5, 'Bon Jovi', 'Bon Jovi là một ban nhạc hard rock đến từ Sayreville, New Jersey. Được thành lập và lấy tên ban nhạc theo ca sĩ hát chính là Jon Bon Jovi, nhóm đã đạt được nhiều thành công lớn vào thập niên 1980. Trong 25 năm qua, Bon Jovi đã bán hơn 120 triệu album trên', 'BonJovi'),
+(6, 'Queen', 'Queen là một ban nhạc rock thành lập năm 1970 tại London, Anh. Ban nhạc có được tổng cộng 18 album, 18 đĩa đơn và 10 DVD đạt tới vị trí quán quân, được vinh danh tại Đại sảnh Danh vọng Rock and Roll vào năm 2001.', 'queen'),
+(8, 'The White Stripes', 'The White Stripes là ban nhạc song ca người Mỹ được thành lập vào năm 1997 ở Detroit, Michigan, Mỹ. Ban nhạc bao gồm 2 thành viên: tay trống Meg White và nhạc sĩ - nghệ sĩ đa nhạc cụ Jack White.', 'White_Stripes_on_last_episode_of_Conan'),
 (9, 'Avenged Sevenfold', 'Avenged Sevenfold (A7X) là một ban nhạc rock được thành lập tại California, Hoa Kỳ vào năm 1999. Ban nhạc đạt được thành công lớn với album City of Evil vào năm 2005 với các bài hát như "Burn It Down", "Bat Country", "Beast and the Harlot".', 'avenged_sevenfold_classic_by_mckee91'),
 (10, 'Prince', 'Prince Rogers Nelson, được biết đến bởi nghệ danh Prince, là một ca sĩ, người viết bài hát, nhạc công đa nhạc cụ, nhà sản xuất thu âm và diễn viên người Mỹ.', 'Prince'),
 (13, 'Good Charlotte', 'Là nhóm nhạc rock Mỹ thành lập năm 1996 tại  Waldorf, Maryland.', 'fa4b5059c42469594b9b0c6d9452814a');
@@ -128,7 +128,10 @@ INSERT INTO `music` (`id`, `track`, `artist`, `genre`, `link`, `created_at`, `up
 (49, 'Bí Mật Người Ra Đi', 'Hạc San', 'Rock', 'https://www.youtube.com/embed/5rfAw_0cJ1c', '2017-06-09 01:46:15', '2017-06-09 01:46:30', 'Sét Đánh Ngang Trời', 'setdanhngangtroi', 2, 1),
 (50, 'I Want To Break Free', 'Queen', 'Rock', 'https://www.youtube.com/embed/f4Mc-NYPHaQ', '2017-06-09 02:00:05', '2017-06-09 02:00:05', 'The Works', 'Queen_The_Works', 6, 1),
 (51, 'Nightmare', 'Avenged Sevenfold', 'Rock', 'https://www.youtube.com/embed/94bGzWyHbu0', '2017-06-09 02:38:21', '2017-06-09 02:40:38', 'Nightmare', 'Nightmare', 9, 1),
-(52, 'Hoang Tàn', 'Hạc San', 'Rock', 'https://www.youtube.com/embed/whKBvGm-MTE', '2017-06-09 02:48:56', '2017-06-09 02:48:56', 'Sét Đánh Ngang Trời', 'setdanhngangtroi', 2, 1);
+(52, 'Hoang Tàn', 'Hạc San', 'Rock', 'https://www.youtube.com/embed/whKBvGm-MTE', '2017-06-09 02:48:56', '2017-06-09 02:48:56', 'Sét Đánh Ngang Trời', 'setdanhngangtroi', 2, 1),
+(53, 'Purple Rain', 'Prince', 'Rock', 'https://www.youtube.com/embed/brJ1HjO_Awc', '2017-06-16 02:19:37', '2017-06-16 02:19:37', 'Purple Rain', 'Princepurplerain', 10, 1),
+(54, 'The River ', 'Good Charlotte', 'Rock', 'https://www.youtube.com/embed/fH5w6dcC2dw', '2017-06-16 02:22:03', '2017-06-16 02:22:03', 'Good Morning Revival', 'GoodMorningRevival', 13, 1),
+(55, 'Seven Nation Army', 'The White Stripes', 'Rock', 'https://www.youtube.com/embed/0J2QdDbelmY', '2017-06-16 02:25:27', '2017-06-16 02:25:27', 'Elephant', 'Elephant', 8, 1);
 
 -- --------------------------------------------------------
 
@@ -221,7 +224,7 @@ ALTER TABLE `genres`
 -- AUTO_INCREMENT for table `music`
 --
 ALTER TABLE `music`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 --
 -- AUTO_INCREMENT for table `users`
 --
