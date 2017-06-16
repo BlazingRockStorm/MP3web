@@ -9,7 +9,8 @@ class Artist extends Model
     protected $table='artist';
     protected $fillable = [
         'name',
-        'info'
+        'info',
+        'pic'
     ];
     public $timestamps = false;
 }

@@ -20,7 +20,12 @@
                 </div>
 
                 <div class="form-group">
-                    <button class="btn btn-primary" type="submit">Create</button>
+                    <label for="pic">Artist's picture:</label>
+                    <input type="file" name="pic">
+                </div>
+  
+                <div class="form-group">
+                    <button class="btn btn-primary" type="submit">Edit</button>
                 </div>
             </form>
         </div>

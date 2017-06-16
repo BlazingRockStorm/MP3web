@@ -32,10 +32,23 @@ class ArtistController extends Controller
         $artist = new Artist();
         $name=$request->input('name');
         $info=$request->input('info');
-        $artist->create([
-            'name'=>$name,
-            'info'=>$info
-        ]);
+        $file=$request->file('pic');
+        if ($file) {
+            $n  = $file->getClientOriginalName();
+            $pic = preg_replace('/(.*)\\.[^\\.]*/', '$1', $n);
+            $file->move('pic', $n);
+            $artist->create([
+                'name'=>$name,
+                'info'=>$info,
+                'pic'=>$pic
+            ]);
+        } else {
+            $artist->create([
+                'name'=>$name,
+                'info'=>$info
+            ]);
+        }
+        
         return redirect('artist');
     }
     public function edit($id)
@@ -48,15 +61,27 @@ class ArtistController extends Controller
     * @param  int  $id
     * @return Response
     */
-    public function update($id,MusicRequest $request)
+    public function update($id,Request $request)
     {
         $artist = Artist::find($id);
         $name=$request->input('name');
         $info=$request->input('info');
-        $artist->update([
-            'name'=>$name,
-            'info'=>$info
-        ]);
+        $file=$request->file('pic');
+        if ($file) {
+            $n  = $file->getClientOriginalName();
+            $pic = preg_replace('/(.*)\\.[^\\.]*/', '$1', $n);
+            $file->move('pic', $n);
+            $artist->update([
+                'name'=>$name,
+                'info'=>$info,
+                'pic'=>$pic
+            ]);
+        } else {
+            $artist->update([
+                'name'=>$name,
+                'info'=>$info
+            ]);
+        }
         return redirect('artist/'.$id);
     }
     public function destroy($id)

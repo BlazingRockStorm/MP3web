@@ -4,7 +4,7 @@
 <div class="container">
     @foreach ($artist as $artists)
     <div class="row" style="margin-bottom: 10px">
-        <div class="col-md-4"><img src="{{asset('pic/'.$artists->pic.'.jpg')}}" height="250"></div>
+        <div class="col-md-4"><img src="{{asset('pic/'.$artists->pic.'.jpg')}}" width="370"></div>
         <div class="col-md-6">
 
             <h1>{{ $artists->name }}</h1>
