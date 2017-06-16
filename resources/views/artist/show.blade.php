@@ -22,5 +22,12 @@
         </div>
     </div>
     @endforeach
+    <a class="btn btn-primary" href="{{asset('artist')}}">Go Back</a>
+    <a class="btn btn-primary" href="{{asset('artist/'.$artist->id.'/edit')}}">Edit</a>
+    <form action="{{ route('artist.destroy',$artist->id) }}" method="POST">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        <button type="submit" class="btn btn-danger" style="margin-top: 10px">Delete</button>
+    </form>
 </div>
 @endsection

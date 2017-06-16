@@ -45,8 +45,16 @@ Route::delete('/music/show/{id}',[
 Route::get('/artist','ArtistController@index');
 Route::get('/artist/create','ArtistController@create');
 Route::get('/artist/{id}','ArtistController@show');
-//Route::get('/artist/{id}/edit','ArtistController@edit');
 Route::post('/artist',[
     'as'=>'artist.store',
     'uses'=>'ArtistController@store'
+]);
+Route::get('/artist/{id}/edit','ArtistController@edit');
+Route::put('/artist/{id}',[
+    'as'=>'artist.update',
+    'uses'=>'ArtistController@update'
+]);
+Route::delete('/artist/{id}',[
+    'as'=>'artist.destroy',
+    'uses'=>'ArtistController@destroy'
 ]);
