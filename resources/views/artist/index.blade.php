@@ -9,9 +9,10 @@
 
             <h1>{{ $artists->name }}</h1>
             <h3>{{ $artists->info }}</h3>
-            <a href="#">Listen</a>
+            <a href="{{asset('artist/'.$artists->id)}}">Listen</a>
         </div>
     </div>
     @endforeach
+    <a href="{{asset('artist/create')}}" class="btn btn-primary form-control" style="margin-top: 30px">Add new song</a>
 </div>
 @endsection

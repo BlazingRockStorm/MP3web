@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Artist;
+use App\Music;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -17,7 +18,8 @@ class ArtistController extends Controller
     public function show($id)
     {
         $artist= Artist::find($id);
-        return view('artist.show', compact('artist'));
+        $music= Music::where('artist', $artist->name)->get();
+        return view('artist.show', compact('artist','music'));
     }
 
     public function create()

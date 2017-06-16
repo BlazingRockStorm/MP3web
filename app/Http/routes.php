@@ -26,16 +26,16 @@ Route::get('/home', 'HomeController@index');
 
 //all about music
 Route::get('/music/home','MusicController@index');
-Route::get('/music/show/{id}','MusicController@show');
 Route::get('/music/create','MusicController@create');
+Route::post('/music/home',[
+    'as'=>'music.store',
+    'uses'=>'MusicController@store'
+]);
+Route::get('/music/show/{id}','MusicController@show');
 Route::get('/music/edit/{id}','MusicController@edit');
 Route::put('/music/show/{id}',[
     'as'=>'music.update',
     'uses'=>'MusicController@update'
-]);
-Route::post('/music/home',[
-    'as'=>'music.store',
-    'uses'=>'MusicController@store'
 ]);
 Route::delete('/music/show/{id}',[
     'as'=>'music.destroy',
@@ -43,8 +43,8 @@ Route::delete('/music/show/{id}',[
 ]);
 //all about artist
 Route::get('/artist','ArtistController@index');
-Route::get('/artist/{id}','ArtistController@show');
 Route::get('/artist/create','ArtistController@create');
+Route::get('/artist/{id}','ArtistController@show');
 //Route::get('/artist/{id}/edit','ArtistController@edit');
 Route::post('/artist',[
     'as'=>'artist.store',
