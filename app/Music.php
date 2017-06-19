@@ -17,4 +17,8 @@ class Music extends Model
         'artist_id',
         'genre_id'
     ];
+    public function artist()
+    {
+        return $this->belongsTo('App\Artist');
+    }
 }

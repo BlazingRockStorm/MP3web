@@ -10,7 +10,7 @@
             <h3>{{ $artist->info }}</h3>
         </div>
     </div>
-    @foreach ($music as $m)
+    @foreach ($musics as $m)
     <div class="row" style="margin-bottom: 10px">
         <div class="col-md-3"><img src="{{asset('img/'.$m->cover_art.'.jpg')}}" height="200"></div>
         <div class="col-md-6">
