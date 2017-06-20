@@ -59,4 +59,5 @@ Route::delete('/artist/{id}',[
     'uses'=>'ArtistController@destroy'
 ]);
 //genre
+Route::get('/genre','GenreController@index');
 Route::get('/genre/{id}','GenreController@show');

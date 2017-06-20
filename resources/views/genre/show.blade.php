@@ -14,5 +14,6 @@
             </div>
         </div>
         @endforeach
+    <a class="btn btn-primary" href="{{asset('genre')}}">Go Back</a>
 </div>
 @endsection
