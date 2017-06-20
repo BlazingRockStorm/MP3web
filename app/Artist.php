@@ -14,8 +14,13 @@ class Artist extends Model
         'pic'
     ];
     public $timestamps = false;
+
     public function music()
     {
         return $this->hasMany('App\Music');
+    }
+    public function genre()
+    {
+        return $this->belongsTo('App\Genre');
     }
 }

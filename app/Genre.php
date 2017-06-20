@@ -8,7 +8,12 @@ class Genre extends Model
 {
     protected $table='genres';
     protected $fillable = [
-        'genre',
-        'genre_info'
+        'genre'
     ];
+    public $timestamps = false;
+    
+    public function artist()
+    {
+        return $this->hasMany('App\Artist');
+    }
 }
