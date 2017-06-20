@@ -18,6 +18,7 @@ class GenreController extends Controller
     {
         $genre = Genre::find($id);
         $artist = Genre::find($id)->artist()->get();
-        return view('genre.show', compact('genre','artist'));
+        $musics = Genre::find($id)->music()->get();
+        return view('genre.show', compact('genre','artist','musics'));
     }
 }

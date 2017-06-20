@@ -16,4 +16,8 @@ class Genre extends Model
     {
         return $this->hasMany('App\Artist');
     }
+    public function music()
+    {
+        return $this->hasMany('App\Music');
+    }
 }
