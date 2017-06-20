@@ -7,6 +7,7 @@
             <file>file:/C:/xampp/htdocs/my_mp3_website/app/Artist.php</file>
             <file>file:/C:/xampp/htdocs/my_mp3_website/app/Http/routes.php</file>
             <file>file:/C:/xampp/htdocs/my_mp3_website/app/Http/Controllers/ArtistController.php</file>
+            <file>file:/C:/xampp/htdocs/my_mp3_website/app/Http/Controllers/MusicController.php</file>
         </group>
     </open-files>
 </project-private>
