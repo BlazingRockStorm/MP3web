@@ -51,20 +51,28 @@ class MusicController extends Controller
         $album=$request->input('album');
         $genre=$request->input('genre');
         $link=$request->input('link');
+        //dd($artist_id);
+        //get genre_id
+        $genre_data = Genre::where('genre','=',$genre)->first();
+        if ($genre_data != null) {
+            $genre_id = $genre_data->id;
+        } else {
+            $genre_new = Genre::create([
+                'genre'=>$genre
+            ]);
+            $genre_id = $genre_new->id;
+        }
         //get artist_id
         $artist_data = Artist::where('name','=',$artist)->first();
         if ($artist_data != null) {
             $artist_id = $artist_data->id;
         } else {
-            return view('artist.create');
-        }
-        //dd($artist_id);
-        //get genre_id
-        $genre_data = Genre::where('genre','=',$genre)->first();
-        if ($genre_data != null) {
-            $genre_id = $genre_data->genre_id;
-        } else {
-            echo 'Dang build!\n';
+//            return view('artist.create');
+            $artist_new=Artist::create([
+                'name'=>$artist,
+                'genre_id'=> $genre_id
+                ]);
+            $artist_id = $artist_new->find($artist_new->id)->id;
         }
         //dd($genre_id);
         $file=$request->file('img');        
